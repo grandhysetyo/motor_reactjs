@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+
+
+
 import Banner from '../../components/banner/banner'
 import Sidebar from '../../components/sidebar/sidebar'
 import TabSearch from '../../components/tab-search/tab-search'
 import TopMotor from '../../components/top-motor/top-motor'
 
 class Home extends Component {
+    componentDidMount() {
+        // console.log(this.props.filterData)
+    }
     render() {
         return (
             <main>
@@ -39,4 +46,9 @@ class Home extends Component {
         )
     }
 }
-export default Home;
+const reduxState = (state) => {
+    return {
+        filterData: state.filterData
+    }
+} 
+export default connect(reduxState)(Home);

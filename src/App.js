@@ -3,6 +3,8 @@ import {
   BrowserRouter as Router,  
   Route  
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from './config/redux';
 
 import './assets/style/style.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,14 +24,16 @@ import Footer from './components/footer/footer';
 class App extends Component {
   render() {
     return (
-      <Router>
-      
-        <Navbar />       
-        <Route path="/" exact component={Home}/>
-        <Route path="/search" exact component={SearchResult}/>
-        <Route path="/detail" exact component={Detail}/>
-        <Footer />      
-    </Router>
+      <Provider store={store}>
+        <Router>
+        
+          <Navbar />       
+          <Route path="/" exact component={Home}/>
+          <Route path="/search" exact component={SearchResult}/>
+          <Route path="/detail" exact component={Detail}/>
+          <Footer />      
+        </Router>
+    </Provider>
     )
   }
 }

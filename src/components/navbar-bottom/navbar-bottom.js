@@ -10,7 +10,7 @@ function NavbarBottom() {
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className="collapse navbar-collapse">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <a className="nav-link active" href="/">Buy <span className="sr-only">(current)</span></a>
@@ -23,7 +23,7 @@ function NavbarBottom() {
                             </li>                        
                         </ul>
                         <div className="d-flex ml-auto">
-                            <button type="button" class="btn btn-success btn-md px-5 py-3 font-weight-bold"><i class="fas fa-plus"></i> ADD LISTING</button>
+                            <button type="button" className="btn btn-success btn-md px-5 py-3 font-weight-bold"><i className="fas fa-plus"></i> ADD LISTING</button>
                         </div>
                     </div>
                     
