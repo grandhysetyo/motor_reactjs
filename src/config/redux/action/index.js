@@ -20,8 +20,7 @@ export const getData = (filter, category) => (dispatch) => {
     const combination = `${url}/vehicles/?${cate}${model}${condition}${brand}${location}${transmision}${fuel}${exterior}${interior}`
     return new Promise((resolve, reject) => {               
         axios.get(combination).then(function (res) {
-            // handle success      
-            console.log(res.data);
+            // handle success                  
             const dataAll = res.data.map(element => {
                 return{
                     ...element,

@@ -6,13 +6,13 @@ import { Brand, Model } from '../select-option/option';
 
 
 function TabSearch() {
-    const stateCategory = useSelector((state) => state.category);   
+    const stateCategory = useSelector((state) => state.category);  
+    const statePrice = useSelector((state) => state.price); 
     const filter = useSelector((state) => state.filterData);
     const dispatch = useDispatch();
     let history = useHistory();
 
-    const handleCategory = (selected) => {
-        console.log(selected);
+    const handleCategory = (selected) => {        
         dispatch({type: 'CHANGE_CATEGORY' , value: selected})
     }   
     const handleSearch = (e) => {        
@@ -39,7 +39,7 @@ function TabSearch() {
         e.preventDefault();
         history.push('/search')
     }
-    console.log(filter);
+    
     return (
         <div className='tab-search'>
             <nav>
@@ -54,10 +54,10 @@ function TabSearch() {
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label htmlFor="category">CATEGORY</label>
-                                <select id="category" name='category' className="form-control" onChange={({ target: {value} }) => handleCategory(value)}>
+                                <select id="category" name='category' defaultValue={stateCategory} className="form-control" onChange={({ target: {value} }) => handleCategory(value)}>
                                     <option value=''>All CATEGORY</option>
                                     {category.map((data, idx) => 
-                                        <option selected={stateCategory === data.toLowerCase()} value={idx} key={idx}>
+                                        <option value={idx} key={idx}>
                                         {data}
                                         </option>                            
                                     )}                                    
@@ -65,29 +65,29 @@ function TabSearch() {
                             </div>
                             <div className="form-group col-md-6">
                                 <label htmlFor="model">MODEL</label>
-                                <select id="model" name='model' className="form-control">                                    
-                                    <Model category={stateCategory} selected='All'/>
+                                <select id="model" name='model' defaultValue={filter.model} className="form-control">                                    
+                                    <Model category={stateCategory} />
                                 </select>
                             </div>
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <div className="form-check form-check-inline">                                                            
-                                    <input className="form-check-input" type="radio" name="condition" id="used" />
+                                    <input className="form-check-input" type="radio" name="condition" id="used" defaultChecked={filter.condition}/>
                                     <label className="form-check-label" htmlFor="used">Used Item</label>
                                 </div>
                                 <div className="form-check form-check-inline">
-                                    <input className="form-check-input" type="radio" name="condition" id="new" />
+                                    <input className="form-check-input" type="radio" name="condition" id="new" defaultChecked={filter.condition} />
                                     <label className="form-check-label" htmlFor="new">New Item</label>
                                 </div>                                                        
                             </div>
                             <div className="form-group col-md-6">
                                 <div className="form-check form-check-inline">
-                                    <input className="form-check-input" type="checkbox" id="photo" value='true'/>
+                                    <input className="form-check-input" type="checkbox" id="photo" value='true' defaultChecked={filter.photo}/>
                                     <label className="form-check-label" htmlFor="photo">With photos</label>
                                 </div>
                                 <div className="form-check form-check-inline">
-                                    <input className="form-check-input" type="checkbox" id="video" value='true'/>
+                                    <input className="form-check-input" type="checkbox" id="video" value='true' defaultChecked={filter.video}/>
                                     <label className="form-check-label" htmlFor="video">With Video</label>
                                 </div>
                             </div>
@@ -96,8 +96,8 @@ function TabSearch() {
                         <div className="form-row">
                             <div className="form-group col-md-4">
                                 <label htmlFor="location">LOCATION</label>
-                                <select id="location" name='location' className="form-control">
-                                    <option selected value=''>All</option>
+                                <select id="location" name='location' defaultValue={filter.location} className="form-control">
+                                    <option value=''>All</option>
                                     {filterData.location.map((data, idx)=> 
                                         <option value={data} key={idx}>{data}</option>
                                     )}
@@ -105,14 +105,14 @@ function TabSearch() {
                             </div>
                             <div className="form-group col-md-4">
                                 <label htmlFor="brand">BRAND</label>
-                                <select id="brand" className="form-control">                                    
-                                    <Brand category={stateCategory} selected='All'/>
+                                <select id="brand" defaultValue={filter.brand} className="form-control">                                    
+                                    <Brand category={stateCategory} />
                                 </select>
                             </div>                            
                             <div className="form-group col-md-4">
                                 <label htmlFor="transmision">TRANSMISION</label>
-                                <select id="transmision" className="form-control">
-                                    <option selected value=''>All</option>
+                                <select id="transmision" defaultValue={filter.transmision} className="form-control">
+                                    <option value=''>All</option>
                                     {filterData.transmision.map((data, idx)=> 
                                         <option value={data} key={idx}>{data}</option>
                                     )}
@@ -124,18 +124,18 @@ function TabSearch() {
                                 <label>PRICE</label>
                                 <div className="form-row">
                                     <div className='col-md-6'>
-                                        <select id="price1" className="form-control">
-                                            <option selected value=''>All</option>
+                                        <select id="price1" defaultValue={statePrice.price1} className="form-control">
+                                            <option value=''>All</option>
                                             {filterData.price.map((data, idx)=> 
-                                                <option value={data} key={idx}>{data}</option>
+                                                <option value={data} key={idx}>{data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</option>
                                             )}
                                         </select>
                                     </div>
                                     <div className='col-md-6'>
-                                        <select id="price2" className="form-control">
-                                            <option selected value=''>All</option>
+                                        <select id="price2" defaultValue={statePrice.price1} className="form-control">
+                                            <option value=''>All</option>
                                             {filterData.price.map((data, idx)=> 
-                                                <option value={data} key={idx}>{data}</option>
+                                                <option value={data} key={idx}>{data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</option>
                                             )}
                                         </select>
                                     </div>

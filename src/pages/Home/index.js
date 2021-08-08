@@ -19,11 +19,11 @@ class Home extends Component {
                 <section>
                     <div className='container'>
                         <div className='row mt-5'>
-                            <div className='col-md-8'>                            
+                            <div className='col-md-12 col-lg-8'>                            
                                 <TabSearch />
                                 <TopMotor />
                             </div>
-                            <div className='col-md-4'>
+                            <div className='col-md-12 col-lg-4'>
                                 <Sidebar title='CATEGORIES' type='categories'/>                            
                                 <Sidebar title='ONLINE SUPPORT' type='support'/>
                                 <Sidebar title='ABOUT MOTOR' type='about'/>

@@ -8,10 +8,10 @@ function FooterBottom() {
                 <div className='container'>
                     <a href="/" className="navbar-brand"><img src={logo} alt='' /></a>
                     
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className="collapse navbar-collapse">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link active" href="/">Buy <span className="sr-only">(current)</span></a>
+                                <a className="nav-link active" href="/">Buy</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/">Sell</a>

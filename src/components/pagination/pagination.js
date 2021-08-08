@@ -13,16 +13,26 @@ function Pagination(props) {
             <div className='card-pagination'>
                 <nav aria-label="Page navigation">
                     <ul className="pagination">
-                        <li className="page-item prev ml-auto"><a href='/' onClick={(e)=> paginate(e,activePage === 1 ? activePage : activePage-1)} className="page-link">Previous</a></li>
-                        <li className='number'>
+                        <li className="page-item prev ml-auto">
+                            <a href='/' onClick={(e)=> paginate(e,activePage === 1 ? activePage : activePage-1)} className="page-link">Previous</a>
+                        </li>
+                        <div className='number'>
                             {pageNumber.map(number =>(
-                                <li className="page-item"><a href='/' onClick={(e)=> paginate(e,number)} className={activePage===number?'page-link active':'page-link'}>{number}</a></li>
+                                <li className="page-item" key={number}>
+                                    <a href='/' onClick={(e)=> paginate(e,number)} className={activePage===number?'page-link active':'page-link'}>{number}</a>
+                                </li>
                             ))}                                                                   
-                        </li>                                       
-                        <li className="page-item next mr-auto"><a href='/' onClick={(e)=> paginate(e,activePage === Math.ceil(totalVehicle / vehiclePerPage) ? activePage : activePage+1)} className="page-link">Next</a></li>
+                        </div>
+                        <div className='number-mobile'>                            
+                            <li className="page-item">
+                                <a href='/' className='page-link active'>{activePage}</a>
+                            </li>                                                                                              
+                        </div>                                       
+                        <li className="page-item next mr-auto">
+                            <a href='/' onClick={(e)=> paginate(e,activePage === Math.ceil(totalVehicle / vehiclePerPage) ? activePage : activePage+1)} className="page-link">Next</a>
+                        </li>
                     </ul>
                 </nav>
-
             </div>
         </div>
     )

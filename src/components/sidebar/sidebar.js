@@ -2,10 +2,12 @@ import React from 'react'
 import user from '../../assets/images/user.png'
 import { category, filterData } from '../../config/data/category';
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { Brand, Model } from '../select-option/option';
 
 const Content = (props)=> {
     const type = props.type;
+    const history = useHistory();
     const stateCategory = useSelector((state) => state.category);
     const stateMileage = useSelector((state) => state.mileage);
     const statePrice = useSelector((state) => state.price);
@@ -15,6 +17,11 @@ const Content = (props)=> {
     
     const handleCategory = (selected) => {        
         dispatch({type: 'CHANGE_CATEGORY' , value: selected})        
+    }
+    const handleCategory2 = (selected,e) => {        
+        dispatch({type: 'CHANGE_CATEGORY' , value: selected})
+        e.preventDefault();    
+        history.push('/search')   
     }
     const handleMileage = (e) => {       
         dispatch({type: 'CHANGE_MILEAGE' , 
@@ -51,8 +58,8 @@ const Content = (props)=> {
     if (type==='categories') {
         return(
             <ul className='category'>
-                <li><i className="fas fa-car"></i> Cars</li>
-                <li><i className="fas fa-motorcycle"></i> Motor</li>
+                <li><a href='/search' onClick={(e) => handleCategory2('0',e)}><i className="fas fa-car"></i> Cars </a></li>
+                <li><a href='/search' onClick={(e) => handleCategory2('1',e)}><i className="fas fa-motorcycle"></i> Motor</a></li>
             </ul>
         )
     }else if(type==='about'){
@@ -67,8 +74,7 @@ const Content = (props)=> {
                     <div>
                         <h6 className='font-weight-bold'>My Name Foo</h6>
                         <p>Lorem Ipsum is simply dummy text of the printing</p>
-                    </div>
-                    
+                    </div>                    
                 </li>
                 <li>
                     <button className='btn btn-primary btn-lg'><i className="fas fa-phone-alt"></i> +6281230987127</button>
@@ -80,10 +86,10 @@ const Content = (props)=> {
             <ul>
                 <li>
                     <label htmlFor="category">CATEGORY</label>
-                    <select id="category" name="category" className="form-control" onChange={({ target: {value} }) => handleCategory(value)}>
+                    <select id="category" name="category" className="form-control" defaultValue={stateCategory} onChange={({ target: {value} }) => handleCategory(value)}>
                         <option value=''>All CATEGORY</option>
                         {category.map((data, idx) => 
-                            <option selected={stateCategory === idx.toString()} value={idx} key={idx}>
+                            <option value={idx} key={idx}>
                             {data}
                             </option>                            
                         )} 
@@ -91,37 +97,37 @@ const Content = (props)=> {
                 </li>
                 <li>
                     <div className="form-check form-check-inline">                                                            
-                        <input className="form-check-input" type="radio" name="condition" id="used" checked={stateFilter.condition === 'Used' ? 'checked' : ''} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="radio" name="condition" id="used" defaultChecked={stateFilter.condition} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="used">Used Item</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="condition" id="new"  checked={stateFilter.condition === 'New' ? 'checked' : ''} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="radio" name="condition" id="new"  defaultChecked={stateFilter.condition} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="new">New Item</label>
                     </div>
                 </li>
                 <li>
                     <label htmlFor="model">MODEL</label>
-                    <select id="model" name='model' className="form-control" onChange={(e)=> handleChange(e)}>
-                        <Model category={stateCategory} selected={stateFilter.model}/>
+                    <select id="model" name='model' defaultValue={stateFilter.model} className="form-control" onChange={(e)=> handleChange(e)}>
+                        <Model category={stateCategory} />
                     </select>
                 </li>
                 <li>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="photo" value='true' checked={stateFilter.photo === 'true' ? true : false} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="checkbox" id="photo" value='true' defaultChecked={stateFilter.photo} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="photo">With photos</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="video" value='true' checked={stateFilter.video === 'true' ? true : false} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="checkbox" id="video" value='true' defaultChecked={stateFilter.photo} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="video">With Video</label>
                     </div>
                 </li>
                 <hr/>
                 <li>
                     <label htmlFor="location">LOCATION</label>
-                    <select id="location" name='location' className="form-control" onChange={(e)=> handleChange(e)}>
-                        <option selected value=''>All</option>
+                    <select id="location" name='location' defaultValue={stateFilter.location} className="form-control" onChange={(e)=> handleChange(e)}>
+                        <option value=''>All</option>
                         {filterData.location.map((data, idx)=> 
-                            <option selected={stateFilter.location.toLowerCase() === data.toLowerCase()} value={data} key={idx}>
+                            <option value={data} key={idx}>
                             {data}
                             </option> 
                         )}
@@ -129,29 +135,29 @@ const Content = (props)=> {
                 </li>
                 <li>
                     <label htmlFor="brand">BRAND</label>
-                    <select id="brand" name='brand' className="form-control" onChange={(e)=> handleChange(e)}>
-                        <Brand category={stateCategory} selected={stateFilter.brand}/>
+                    <select id="brand" name='brand' defaultValue={stateFilter.brand} className="form-control" onChange={(e)=> handleChange(e)}>
+                        <Brand category={stateCategory} />
                     </select>
                 </li>                
                 <li>
                     <label>PRICE</label>
                     <div className="form-row">
                         <div className='col-md-6'>
-                            <select id="price1" name='price1' className="form-control" onChange={(e)=> handlePrice(e)}>
-                                <option selected value=''>All</option>
+                            <select id="price1" name='price1' defaultValue={statePrice.price1} className="form-control" onChange={(e)=> handlePrice(e)}>
+                                <option value=''>All</option>
                                 {filterData.price.map((data, idx)=> 
-                                    <option selected={statePrice.price1 === data} value={data} key={idx}>
-                                    {data}
+                                    <option value={data} key={idx}>
+                                    {data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
                                     </option> 
                                 )}
                             </select>
                         </div>
                         <div className='col-md-6'>
-                            <select id="price2" name='price2' className="form-control" onChange={(e)=> handlePrice(e)}>
-                                <option selected value=''>All</option>
+                            <select id="price2" name='price2' defaultValue={statePrice.price2} className="form-control" onChange={(e)=> handlePrice(e)}>
+                                <option value=''>All</option>
                                 {filterData.price.map((data, idx)=> 
-                                    <option selected={statePrice.price2 === data} value={data} key={idx}>
-                                    {data}
+                                    <option value={data} key={idx}>
+                                    {data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
                                     </option> 
                                 )}
                             </select>
@@ -161,10 +167,10 @@ const Content = (props)=> {
                 <hr />
                 <li>
                     <label htmlFor="transmision">TRANSMISION</label>
-                    <select id="transmision" name="transmision" className="form-control" onChange={(e)=> handleChange(e)}>
-                        <option selected value=''>All</option>
+                    <select id="transmision" name="transmision" defaultValue={stateFilter.transmision} className="form-control" onChange={(e)=> handleChange(e)}>
+                        <option value=''>All</option>
                         {filterData.transmision.map((data, idx)=> 
-                            <option selected={stateFilter.transmision.toLowerCase() === data.toLowerCase()} value={data} key={idx}>
+                            <option value={data} key={idx}>
                             {data}
                             </option> 
                         )}
@@ -172,10 +178,10 @@ const Content = (props)=> {
                 </li>
                 <li>
                     <label htmlFor="fuel">FUEL</label>
-                    <select id="fuel" name="fuel" className="form-control" onChange={(e)=> handleChange(e)}>
-                        <option selected value=''>All</option>
+                    <select id="fuel" name="fuel" defaultValue={stateFilter.fuel} className="form-control" onChange={(e)=> handleChange(e)}>
+                        <option value=''>All</option>
                         {filterData.fuel.map((data, idx)=> 
-                            <option selected={stateFilter.fuel.toLowerCase() === data.toLowerCase()} value={data} key={idx}>
+                            <option value={data} key={idx}>
                             {data}
                             </option> 
                         )}
@@ -185,21 +191,21 @@ const Content = (props)=> {
                     <label>MILEAGE</label>
                     <div className="form-row">
                         <div className='col-md-6'>
-                            <select id="mileage1" name='mileage1' className="form-control" onChange={(e)=> handleMileage(e)}>
-                                <option selected value=''>All</option>
+                            <select id="mileage1" name='mileage1' defaultValue={stateMileage.mileage1} className="form-control" onChange={(e)=> handleMileage(e)}>
+                                <option value=''>All</option>
                                 {filterData.mileage.map((data, idx)=> 
-                                    <option selected={stateMileage.mileage1 === data} value={data} key={idx}>
-                                    {data}
+                                    <option value={data} key={idx}>
+                                    {data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
                                     </option> 
                                 )}
                             </select>
                         </div>
                         <div className='col-md-6'>
-                            <select id="mileage2" name='mileage2' className="form-control" onChange={(e)=> handleMileage(e)}>
-                                <option selected value=''>All</option>
+                            <select id="mileage2" name='mileage2' defaultValue={stateMileage.mileage2} className="form-control" onChange={(e)=> handleMileage(e)}>
+                                <option value=''>All</option>
                                 {filterData.mileage.map((data, idx)=> 
-                                    <option selected={stateMileage.mileage2 === data} value={data} key={idx}>
-                                    {data}
+                                    <option value={data} key={idx}>
+                                    {data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
                                     </option> 
                                 )}
                             </select>
@@ -208,10 +214,10 @@ const Content = (props)=> {
                 </li>
                 <li>
                     <label htmlFor="exterior">EXTERIOR COLOR</label>
-                    <select id="exterior" name="exterior" className="form-control" onChange={(e)=> handleChange(e)}>
-                        <option selected value=''>All</option>
+                    <select id="exterior" name="exterior" defaultValue={stateFilter.exterior} className="form-control" onChange={(e)=> handleChange(e)}>
+                        <option value=''>All</option>
                         {filterData.exterior.map((data, idx)=> 
-                            <option selected={stateFilter.exterior.toLowerCase() === data.toLowerCase()} value={data} key={idx}>
+                            <option value={data} key={idx}>
                             {data}
                             </option> 
                         )}
@@ -219,10 +225,10 @@ const Content = (props)=> {
                 </li>
                 <li>
                     <label htmlFor="interior">INTERIOR COLOR</label>
-                    <select id="interior" name="interior" className="form-control" onChange={(e)=> handleChange(e)}>
-                        <option selected value=''>All</option>
+                    <select id="interior" name="interior" defaultValue={stateFilter.interior} className="form-control" onChange={(e)=> handleChange(e)}>
+                        <option value=''>All</option>
                         {filterData.interior.map((data, idx)=> 
-                            <option selected={stateFilter.interior.toLowerCase() === data.toLowerCase()} value={data} key={idx}>
+                            <option  value={data} key={idx}>
                             {data}
                             </option> 
                         )}

@@ -33,7 +33,7 @@ function SearchList(props) {
                                         <span><IconCat category={item.category} /> {item.brand} - {item.model}</span>
                                         <span><i className="fas fa-certificate"></i> {item.condition}</span>
                                         <span><i className="fas fa-cogs"></i>{item.transmision}</span>
-                                        <span><i className="fas fa-tachometer-alt"></i> {item.mileage} Miles</span>
+                                        <span><i className="fas fa-tachometer-alt"></i> {item.mileage.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')} Miles</span>
                                     </div>  
                                     <div>
                                         <span><i className="fas fa-tint"></i> {item.fuel}</span>
@@ -42,7 +42,7 @@ function SearchList(props) {
                                     </div>                          
                                 </div>
                                 <div className='price'>
-                                    <h5>Rp. {item.price}</h5>
+                                    <h5>Rp. {item.price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</h5>
                                     <span>
                                         <i className="fas fa-star"></i>
                                         <i className="fas fa-star"></i>

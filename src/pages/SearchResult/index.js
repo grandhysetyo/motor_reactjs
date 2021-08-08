@@ -14,13 +14,12 @@ class SearchResult extends Component {
         vehicle: []
     } 
     componentDidMount() {        
-        const { filter, category, sortType } = this.props;           
+        const { filter, category } = this.props;           
         this.loadData(filter,category);   
-        console.log(sortType)                      
+                            
     }
     componentDidUpdate(prevProps){
         const { filter, category, price, mileage, sortType } = this.props;  
-        console.log(sortType)
         if(prevProps.category !== category || prevProps.filter !== filter){
             this.loadData(filter,category);                     
         }
@@ -120,7 +119,7 @@ class SearchResult extends Component {
                 <section>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-md-8'> 
+                            <div className='col-md-12 col-lg-8'> 
                                 <NavbarSort />
                                 <Pagination 
                                     vehiclePerPage={this.state.vehiclePerPage} 
@@ -135,7 +134,7 @@ class SearchResult extends Component {
                                     activePage={this.state.currentPage}/>
                                 
                             </div>
-                            <div className='col-md-4'> 
+                            <div className='col-md-12 col-lg-4'> 
                                 <Sidebar title='SEARCH FILTER' type='search'/>                                                          
                                 <Sidebar title='ONLINE SUPPORT' type='support'/>
                                 <Sidebar title='ABOUT MOTOR' type='about'/>

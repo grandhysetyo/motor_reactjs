@@ -3,7 +3,7 @@ const intialState = {
     filterData: {                
         model: '',
         condition: '',
-        photo: '',
+        photo: 'true',
         video: '',
         location: '',
         brand: '',
@@ -64,8 +64,7 @@ const reducer = (state = intialState, action) => {
             }
         }        
     }
-    if(action.type === 'CHANGE_SORT'){
-        console.log(action.value)
+    if(action.type === 'CHANGE_SORT'){        
         return{
             ...state,
             sortType: action.value
