@@ -2,11 +2,11 @@ import React, {  } from 'react'
 import { category, filterData } from '../../config/data/category';
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory  } from 'react-router';
-import {Brand, Model } from '../select-option/option';
+import { Brand, Model } from '../select-option/option';
 
 
 function TabSearch() {
-    const stateCategory = useSelector((state) => state.category);
+    const stateCategory = useSelector((state) => state.category);   
     const filter = useSelector((state) => state.filterData);
     const dispatch = useDispatch();
     let history = useHistory();
@@ -14,8 +14,7 @@ function TabSearch() {
     const handleCategory = (selected) => {
         console.log(selected);
         dispatch({type: 'CHANGE_CATEGORY' , value: selected})
-    }
-    
+    }   
     const handleSearch = (e) => {        
         dispatch({type: 'CHANGE_FILTER' , 
             value: {
@@ -25,16 +24,18 @@ function TabSearch() {
                 video: e.target.video.checked ? 'true' : 'false',
                 location: e.target.location.value,
                 brand: e.target.brand.value,
-                transmision: e.target.transmision.value,
-                price1: e.target.price1.value,
-                price2: e.target.price2.value,
+                transmision: e.target.transmision.value,                
                 fuel: '',
                 exterior:'',
-                interior:'',
-                mileage1:'',
-                mileage2:'',
+                interior:'',                
             }
         });
+        dispatch({type: 'CHANGE_PRICE' , 
+            value: {
+                price1: e.target.price1.value,
+                price2: e.target.price2.value,
+            }
+        }) 
         e.preventDefault();
         history.push('/search')
     }
@@ -125,15 +126,17 @@ function TabSearch() {
                                     <div className='col-md-6'>
                                         <select id="price1" className="form-control">
                                             <option selected value=''>All</option>
-                                            <option>100</option>
-                                            <option>200</option>
+                                            {filterData.price.map((data, idx)=> 
+                                                <option value={data} key={idx}>{data}</option>
+                                            )}
                                         </select>
                                     </div>
                                     <div className='col-md-6'>
                                         <select id="price2" className="form-control">
                                             <option selected value=''>All</option>
-                                            <option>100</option>
-                                            <option>200</option>
+                                            {filterData.price.map((data, idx)=> 
+                                                <option value={data} key={idx}>{data}</option>
+                                            )}
                                         </select>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 const IconCat = (props)=>{
     if (props.category === '0'){
         return(
@@ -21,7 +22,7 @@ function SearchGrid(props) {
                 <div className='col-md-4' key={idx}>
                     <Link className='card-grid' to={`produk/`+item.slug}>
                         <div className='title'>
-                            <img src='https://static.carmudi.co.id/xC44w7y7pIwo2ws9_eqti4xUY6c=/900x405/https://www.trenotomotif.com/ncs/images/TOYOTA/Toyota%2086/ok_%20Toyota%2086.jpg' alt='' />
+                            <img src={'/assets/images/'+item.urlPhoto} alt='' />
                             <h5>{item.title}</h5>
                             <span><i className="fas fa-map-marker-alt"></i> {item.location}</span>
                         </div>                        

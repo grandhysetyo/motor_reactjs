@@ -7,17 +7,21 @@ const intialState = {
         video: '',
         location: '',
         brand: '',
-        transmision:'',
-        price1: '',
-        price2: '',
+        transmision:'',        
         fuel: '',
         exterior:'',
-        interior:'',
+        interior:'',        
+    },
+    price: {
+        price1: '',
+        price2: '',
+    },
+    mileage:{
         mileage1: '',
         mileage2: '',
     },
     viewType: 'List',
-    sortType: 'asc',
+    sortType: '',
     data:[],    
 }
 
@@ -25,7 +29,31 @@ const reducer = (state = intialState, action) => {
     if (action.type === 'CHANGE_CATEGORY'){
         return{
             ...state,
-            category: action.value
+            category: action.value,
+            filterData: {                
+                model: '',
+                condition: '',
+                photo: '',
+                video: '',
+                location: '',
+                brand: '',
+                transmision:'',                
+                fuel: '',
+                exterior:'',
+                interior:'',
+            }
+        }
+    }
+    if (action.type === 'CHANGE_PRICE'){
+        return{
+            ...state,
+            price: action.value
+        }
+    }
+    if (action.type === 'CHANGE_MILEAGE'){
+        return{
+            ...state,
+            mileage: action.value
         }
     }
     if(action.type === 'CHANGE_FILTER'){

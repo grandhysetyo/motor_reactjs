@@ -1,5 +1,4 @@
 import React from 'react'
-import Pagination from '../pagination/pagination'
 import { useSelector, useDispatch } from "react-redux";
 
 function NavbarSort() {
@@ -29,7 +28,8 @@ function NavbarSort() {
                     <div className="form-group row">
                         <label htmlFor="inputPassword" className="col-md-4 col-form-label">Sort by</label>
                         <div className="col-md-8">
-                            <select className="form-control" onChange={({ target: {value} }) => handleSort(value)}>                                
+                            <select className="form-control" onChange={({ target: {value} }) => handleSort(value)}>
+                                <option value='' selected={stateSort === '' ? 'selected': ''}>Choose type sort</option>                              
                                 <option value='asc' selected={stateSort === 'asc' ? 'selected': ''}>Lowest to Highest</option>
                                 <option value='dsc' selected={stateSort === 'dsc' ? 'selected': ''}>Highest to Lowest</option>
                             </select>
@@ -42,10 +42,7 @@ function NavbarSort() {
                         <button className={classBtnGrid} onClick={handleGridButton}><i className="fas fa-th-large"></i></button>
                     </div>                    
                 </div>
-            </div>
-            <div className='row'>
-                <Pagination />
-            </div>
+            </div>            
         </>
     )
 }

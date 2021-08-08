@@ -22,7 +22,7 @@ function SearchList(props) {
                 {data.map((item,idx) => 
                     <div className='col-md-12' key={idx}>                    
                         <Link className='card-list' to={`produk/`+item.slug}>
-                            <img src='https://images.bisnis-cdn.com/thumb/posts/2021/04/13/1380321/toyota-rush1.jpg?w=744&h=465' alt='' />
+                            <img src={'/assets/images/'+item.urlPhoto} alt='' />
                             <div className='card-content'>
                                 <div className='title'>                        
                                     <h5>{item.title}</h5>

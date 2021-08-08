@@ -2,16 +2,35 @@ import React from 'react'
 import user from '../../assets/images/user.png'
 import { category, filterData } from '../../config/data/category';
 import { useSelector, useDispatch } from "react-redux";
-import {Brand, Model } from '../select-option/option';
+import { Brand, Model } from '../select-option/option';
 
 const Content = (props)=> {
     const type = props.type;
     const stateCategory = useSelector((state) => state.category);
+    const stateMileage = useSelector((state) => state.mileage);
+    const statePrice = useSelector((state) => state.price);
     const stateFilter = useSelector((state) => state.filterData);
+
     const dispatch = useDispatch();
     
     const handleCategory = (selected) => {        
         dispatch({type: 'CHANGE_CATEGORY' , value: selected})        
+    }
+    const handleMileage = (e) => {       
+        dispatch({type: 'CHANGE_MILEAGE' , 
+            value: {
+                mileage1: e.target.id==='mileage1' ? e.target.value : stateMileage.mileage1,
+                mileage2: e.target.id==='mileage2' ? e.target.value : stateMileage.mileage2,
+            }
+        })                 
+    }
+    const handlePrice = (e) => {                        
+        dispatch({type: 'CHANGE_PRICE' , 
+            value: {
+                price1: e.target.id==='price1' ? e.target.value : statePrice.price1,
+                price2: e.target.id==='price2' ? e.target.value : statePrice.price2,
+            }
+        })           
     }
     const handleChange = (e) => {             
         dispatch({type: 'CHANGE_FILTER' , 
@@ -22,11 +41,7 @@ const Content = (props)=> {
                 video: e.target.id ==='video' ? e.target.value : stateFilter.video,
                 location: e.target.id==='location' ? e.target.value : stateFilter.location,
                 brand: e.target.id==='brand' ? e.target.value : stateFilter.brand,
-                transmision: e.target.id==='transmision' ? e.target.value : stateFilter.transmision,
-                price1: e.target.id==='price1' ? e.target.value : stateFilter.price1,
-                price2: e.target.id==='price2' ? e.target.value : stateFilter.price2,
-                mileage1: e.target.id==='mileage1' ? e.target.value : stateFilter.mileage1,
-                mileage2: e.target.id==='mileage2' ? e.target.value : stateFilter.mileage2,
+                transmision: e.target.id==='transmision' ? e.target.value : stateFilter.transmision,                                
                 fuel: e.target.id==='fuel' ? e.target.value : stateFilter.fuel,
                 exterior: e.target.id==='exterior' ? e.target.value : stateFilter.exterior,
                 interior: e.target.id==='interior' ? e.target.value : stateFilter.interior,
@@ -122,17 +137,23 @@ const Content = (props)=> {
                     <label>PRICE</label>
                     <div className="form-row">
                         <div className='col-md-6'>
-                            <select id="price1" name='price1' className="form-control" onChange={(e)=> handleChange(e)}>
-                                <option selected>0</option>
-                                <option>100</option>
-                                <option>200</option>
+                            <select id="price1" name='price1' className="form-control" onChange={(e)=> handlePrice(e)}>
+                                <option selected value=''>All</option>
+                                {filterData.price.map((data, idx)=> 
+                                    <option selected={statePrice.price1 === data} value={data} key={idx}>
+                                    {data}
+                                    </option> 
+                                )}
                             </select>
                         </div>
                         <div className='col-md-6'>
-                            <select id="price2" name='price2' className="form-control" onChange={(e)=> handleChange(e)}>
-                                <option selected>0</option>
-                                <option>100</option>
-                                <option>200</option>
+                            <select id="price2" name='price2' className="form-control" onChange={(e)=> handlePrice(e)}>
+                                <option selected value=''>All</option>
+                                {filterData.price.map((data, idx)=> 
+                                    <option selected={statePrice.price2 === data} value={data} key={idx}>
+                                    {data}
+                                    </option> 
+                                )}
                             </select>
                         </div>
                     </div>
@@ -164,17 +185,23 @@ const Content = (props)=> {
                     <label>MILEAGE</label>
                     <div className="form-row">
                         <div className='col-md-6'>
-                            <select id="mileage1" name='mileage1' className="form-control" onChange={(e)=> handleChange(e)}>
-                                <option selected>0</option>
-                                <option>100</option>
-                                <option>200</option>
+                            <select id="mileage1" name='mileage1' className="form-control" onChange={(e)=> handleMileage(e)}>
+                                <option selected value=''>All</option>
+                                {filterData.mileage.map((data, idx)=> 
+                                    <option selected={stateMileage.mileage1 === data} value={data} key={idx}>
+                                    {data}
+                                    </option> 
+                                )}
                             </select>
                         </div>
                         <div className='col-md-6'>
-                            <select id="mileage2" name='mileage2' className="form-control" onChange={(e)=> handleChange(e)}>
-                                <option selected>0</option>
-                                <option>100</option>
-                                <option>200</option>
+                            <select id="mileage2" name='mileage2' className="form-control" onChange={(e)=> handleMileage(e)}>
+                                <option selected value=''>All</option>
+                                {filterData.mileage.map((data, idx)=> 
+                                    <option selected={stateMileage.mileage2 === data} value={data} key={idx}>
+                                    {data}
+                                    </option> 
+                                )}
                             </select>
                         </div>
                     </div>

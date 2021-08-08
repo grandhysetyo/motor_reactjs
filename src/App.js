@@ -30,7 +30,7 @@ class App extends Component {
           <Navbar />       
           <Route path="/" exact component={Home}/>
           <Route path="/search" exact component={SearchResult}/>
-          <Route path="/detail" exact component={Detail}/>
+          <Route path="/produk/:slug" component={Detail}/>
           <Footer />      
         </Router>
     </Provider>

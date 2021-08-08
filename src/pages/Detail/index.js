@@ -1,8 +1,21 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+// import { withRouter } from "react-router";
 import Sidebar from '../../components/sidebar/sidebar';
 
 class Detail extends Component {
+    state  = {
+        vehicle:{ }
+    }
+    componentDidMount(){
+        const slug = this.props.match.params.slug;
+        this.setState({
+            vehicle: this.props.vehicles.find(el => el.slug === slug)
+        });
+        
+    }
     render() {
+        const { vehicle } = this.state;
         return (
             <main>
                 <section>
@@ -11,30 +24,29 @@ class Detail extends Component {
                             <div className='col-md-8'> 
                                 <div className='row'>
                                     <div className="card-sidebar">
-                                        <h5 className='titlesidebar'>Title Produk</h5>
-                                        <div className='d-flex'>
-                                            <img className='foto-produk' src='https://static.carmudi.co.id/xC44w7y7pIwo2ws9_eqti4xUY6c=/900x405/https://www.trenotomotif.com/ncs/images/TOYOTA/Toyota%2086/ok_%20Toyota%2086.jpg' alt='' />                                           
+                                        <h5 className='titlesidebar'>{vehicle.brand}</h5>
+                                        <div className='d-flex'>                                        
+                                            <img className='foto-produk' src={'/assets/images/'+vehicle.urlPhoto} alt='' />                                           
                                             <div className='card-content content-detail'>
                                                 <div className='title'>                        
-                                                    <h5>Title Motor</h5>
-                                                    <span><i className="fas fa-map-marker-alt"></i> Bandung</span>
+                                                    <h5>{vehicle.title}</h5>
+                                                    <span><i className="fas fa-map-marker-alt"></i> {vehicle.location}</span>
                                                 </div>                        
                                                 <div className='detail'>     
                                                     <div>
-                                                        <span><i className="fas fa-car"></i>Toyota</span>
-                                                        <span><i className="fas fa-calendar-day"></i> 2021</span>
-                                                        <span><i className="fas fa-cogs"></i>Automatic</span>
-                                                        <span><i className="fas fa-tachometer-alt"></i>1.000 Miles</span>
+                                                        <span><i className="fas fa-car"></i> {vehicle.model}</span>
+                                                        <span><i className="fas fa-certificate"></i> {vehicle.condition}</span>
+                                                        <span><i className="fas fa-cogs"></i>{vehicle.transmision}</span>
+                                                        <span><i className="fas fa-tachometer-alt"></i>{vehicle.mileage} Miles</span>
                                                     </div>  
                                                     <div>
-                                                        <span><i className="fas fa-car"></i>Toyota</span>
-                                                        <span><i className="fas fa-calendar-day"></i> 2021</span>
-                                                        <span><i className="fas fa-cogs"></i>Automatic</span>
-                                                        <span><i className="fas fa-tachometer-alt"></i>1.000 Miles</span>
+                                                        <span><i className="fas fa-tint"></i>{vehicle.fuel}</span>
+                                                        <span><i className="fas fa-palette"></i>Ex: {vehicle.exterior}</span>
+                                                        <span><i className="fas fa-palette"></i>In: {vehicle.interior}</span>                                                        
                                                     </div>                          
                                                 </div>
                                                 <div className='price'>
-                                                    <h5>Rp. 200.000.000</h5>
+                                                    <h5>Rp. {vehicle.price}</h5>
                                                     <span>
                                                         <i className="fas fa-star"></i>
                                                         <i className="fas fa-star"></i>
@@ -70,4 +82,9 @@ class Detail extends Component {
         )
     }
 }
-export default Detail;
+const reduxState = (state) => {
+    return{
+        vehicles: state.data
+    }
+}
+export default connect(reduxState)(Detail);
