@@ -97,11 +97,11 @@ const Content = (props)=> {
                 </li>
                 <li>
                     <div className="form-check form-check-inline">                                                            
-                        <input className="form-check-input" type="radio" name="condition" id="used" defaultChecked={stateFilter.condition} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="radio" name="condition" id="used" checked={stateFilter.condition === 'Used' ? 'checked' : ''} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="used">Used Item</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="condition" id="new"  defaultChecked={stateFilter.condition} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="radio" name="condition" id="new"  checked={stateFilter.condition === 'New' ? 'checked' : ''} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="new">New Item</label>
                     </div>
                 </li>
@@ -113,11 +113,11 @@ const Content = (props)=> {
                 </li>
                 <li>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="photo" value='true' defaultChecked={stateFilter.photo} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="checkbox" id="photo" value='true' checked={stateFilter.photo === 'true' ? true : false} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="photo">With photos</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="video" value='true' defaultChecked={stateFilter.photo} onChange={(e)=> handleChange(e)}/>
+                        <input className="form-check-input" type="checkbox" id="video" value='true' checked={stateFilter.video === 'true' ? true : false} onChange={(e)=> handleChange(e)}/>
                         <label className="form-check-label" htmlFor="video">With Video</label>
                     </div>
                 </li>

@@ -284,7 +284,14 @@
             display: flex;
             h5,span{
                 width: 50%;
-            }                        
+            } 
+            h5{
+                color: #D94949;
+                font-weight: bold;
+            }  
+            span{
+                color: gold;
+            }                       
         }
     }
     // XS
@@ -354,7 +361,12 @@
                     object-fit: cover;
                     object-position: center;
                 }
-                
+                a{
+                    color: #000;
+                }
+                a:hover{
+                    text-decoration: none;
+                }                
             }
         }
         .title{
@@ -382,7 +394,14 @@
             display: flex;
             h5,span{
                 width: 50%;
-            }                        
+            }
+            h5{
+                color: #D94949;
+                font-weight: bold;
+            }  
+            span{
+                color: gold;
+            }                         
         }
 
     }

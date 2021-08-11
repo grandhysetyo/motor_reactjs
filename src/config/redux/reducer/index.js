@@ -20,7 +20,7 @@ const intialState = {
         mileage1: '',
         mileage2: '',
     },
-    viewType: 'List',
+    viewType: 'Grid',
     sortType: '',
     data:[],    
 }

@@ -33,7 +33,7 @@ class SearchResult extends Component {
             this.filterMileage(mileage);            
         }
     }
-    loadData = async (filter,category, sortType) =>{
+    loadData = async (filter,category) =>{
         const res = await this.props.getData(filter, category).catch(err => err); 
         if(res.status===200){
             this.setState({

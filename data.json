@@ -16,7 +16,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Brown",
-      "mileage": 1300000
+      "mileage": 1300000,
+      "rating":4,
+      "slug": "toyota-altis-2010"
     },
     {        
       "id": 2,
@@ -33,7 +35,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"Black",
-      "mileage": 15000
+      "mileage": 15000,
+      "rating": 3,
+      "slug":"toyota-voxy-2-0-2019"
     },
     {        
       "id": 3,
@@ -50,7 +54,9 @@
       "urlVideo": "",
       "exterior":"Silver",
       "interior":"Black",
-      "mileage": 65000
+      "mileage": 65000,
+      "rating":4,
+      "slug":"toyota-voxy-2-0-2019"
     },
     {        
       "id": 4,
@@ -67,7 +73,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 45000
+      "mileage": 45000,
+      "rating":3,
+      "slug": "toyota-kijang-innova-2017-2-4g"
     },
     {        
       "id": 5,
@@ -84,7 +92,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Brown",
-      "mileage": 1700
+      "mileage": 1700,
+      "rating":5,
+      "slug": "toyota-calya-1-2g-2020"
     },
     {        
       "id": 6,
@@ -101,7 +111,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 65000
+      "mileage": 65000,
+      "rating":4,
+      "slug":"daihatsu-terios-1-5r-2016"
     },
     {        
       "id": 7,
@@ -118,7 +130,9 @@
       "urlVideo": "",
       "exterior":"Red",
       "interior":"Black",
-      "mileage": 50000000
+      "mileage": 50000000,
+      "rating":2,
+      "slug":"daihatsu-ayla-1-0x-2017"
     },
     {        
       "id": 8,
@@ -135,7 +149,9 @@
       "urlVideo": "",
       "exterior":"Redd",
       "interior":"Black",
-      "mileage": 15000
+      "mileage": 15000,
+      "rating":3,
+      "slug":"daihatsu-copen-2015"
     },
     {        
       "id": 9,
@@ -152,7 +168,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"Black",
-      "mileage": 100000
+      "mileage": 100000,
+      "rating":5,
+      "slug":"daihatsu-sirion-1-3d-2014"
     },
     {        
       "id": 10,
@@ -169,7 +187,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 100000
+      "mileage": 100000,
+      "rating":4,
+      "slug":"daihatsu-xenia-1-0li-2011"
     },
     {        
       "id": 11,
@@ -186,7 +206,9 @@
       "urlVideo": "",
       "exterior":"Red",
       "interior":"Black",
-      "mileage": 0
+      "mileage": 0,
+      "rating":4,
+      "slug":"honda-hrv-1-5e-2021"
     },
     {        
       "id": 12,
@@ -203,7 +225,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"Black",
-      "mileage": 0
+      "mileage": 0,
+      "rating":4,
+      "slug":"honda-city-1-5rs-2021"
     },
     {        
       "id": 13,
@@ -220,7 +244,9 @@
       "urlVideo": "",
       "exterior":"Silver",
       "interior":"Black",
-      "mileage": 0
+      "mileage": 0,
+      "rating":5,
+      "slug":"honda-brio-1-2rs-2021"
     },
     {        
       "id": 14,
@@ -237,7 +263,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 30000
+      "mileage": 30000,
+      "rating": 5,
+      "slug":"honda-civic-1-5es-2018"
     },
     {        
       "id": 15,
@@ -254,7 +282,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"Black",
-      "mileage": 8000
+      "mileage": 8000,
+      "rating":3,
+      "slug":"honda-mobilio-2-5rs-2018"
     },
     {        
       "id": 16,
@@ -271,7 +301,9 @@
       "urlVideo": "",
       "exterior":"Silver",
       "interior":"Black",
-      "mileage": 35000
+      "mileage": 35000,
+      "rating":4,
+      "slug":"mitsubishi-xpander-1-5s-2019"
     },
     {        
       "id": 17,
@@ -288,7 +320,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 85000
+      "mileage": 85000,
+      "rating":3,
+      "slug":"mitsubishi-pajero-sport-2011"
     },
     {        
       "id": 18,
@@ -305,7 +339,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 20000
+      "mileage": 20000,
+      "rating":5,
+      "slug":"mitsubishi-outlander-2-0px-2018"
     },
     {        
       "id": 19,
@@ -322,7 +358,9 @@
       "urlVideo": "",
       "exterior":"Red",
       "interior":"Black",
-      "mileage": 55000
+      "mileage": 55000,
+      "rating":5,
+      "slug":"mitsubishi-mirage-1-2gls-2016"
     },
     {        
       "id": 20,
@@ -339,7 +377,9 @@
       "urlVideo": "",
       "exterior":"Silver",
       "interior":"Black",
-      "mileage": 100000
+      "mileage": 100000,
+      "rating":4,
+      "slug":"mitsubishi-lancer-1-8sei-2012"
     },
     {        
       "id": 21,
@@ -356,7 +396,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"Black",
-      "mileage": 115000
+      "mileage": 115000,
+      "rating":3,
+      "slug":"nissan-juke-1-5rx-2011"
     },
     {        
       "id": 22,
@@ -373,7 +415,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 70000
+      "mileage": 70000,
+      "rating":2,
+      "slug":"nissan-x-trail-2-5e-2017"
     },
     {        
       "id": 23,
@@ -390,7 +434,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Brown",
-      "mileage": 55000
+      "mileage": 55000,
+      "rating":3,
+      "slug":"nissan-grand-livina-1-5xv-2017"
     },
     {        
       "id": 24,
@@ -407,7 +453,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"Black",
-      "mileage": 45000
+      "mileage": 45000,
+      "rating":4,
+      "slug":"nissan-serena-2-0hs-2017"
     },
     {        
       "id": 25,
@@ -424,7 +472,9 @@
       "urlVideo": "",
       "exterior":"Red",
       "interior":"Black",
-      "mileage": 70000
+      "mileage": 70000,
+      "rating":4,
+      "slug":"nissan-march-1-2l-2015"
     },
     {        
       "id": 26,
@@ -441,7 +491,9 @@
       "urlVideo": "",
       "exterior":"Blue",
       "interior":"",
-      "mileage": 60000
+      "mileage": 60000,
+      "rating":3,
+      "slug":"yamaha-jupiter-z-2015"
     },
     {        
       "id": 27,
@@ -458,7 +510,9 @@
       "urlVideo": "",
       "exterior":"Red",
       "interior":"",
-      "mileage": 35000
+      "mileage": 35000,
+      "rating":5,
+      "slug":"yamaha-yzf-2014"
     },
     {        
       "id": 28,
@@ -475,7 +529,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"",
-      "mileage": 30000
+      "mileage": 30000,
+      "rating":4,
+      "slug":"yamaha-mio-m3-2018"
     },
     {        
       "id": 29,
@@ -492,7 +548,9 @@
       "urlVideo": "",
       "exterior":"Blue",
       "interior":"",
-      "mileage": 75000
+      "mileage": 75000,
+      "rating":5,
+      "slug":"yamaha-vega-2010"
     },
     {        
       "id": 30,
@@ -509,7 +567,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"",
-      "mileage": 45000
+      "mileage": 45000,
+      "rating":5,
+      "slug":"yamaha-xeon-rc-2013"
     },
     {        
       "id": 31,
@@ -526,7 +586,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"",
-      "mileage": 70000
+      "mileage": 70000,
+      "rating":5,
+      "slug":"honda-vario-techno-2016"
     },
     {        
       "id": 32,
@@ -543,7 +605,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"",
-      "mileage": 15000
+      "mileage": 15000,
+      "rating":5,
+      "slug":"honda-cbr-250rr-abs-2016"
     },
     {        
       "id": 33,
@@ -560,7 +624,9 @@
       "urlVideo": "",
       "exterior":"Blue",
       "interior":"",
-      "mileage": 5000
+      "mileage": 5000,
+      "rating":5,
+      "slug":"honda-supra-x-125-r-2013"
     },
     {        
       "id": 34,
@@ -577,7 +643,9 @@
       "urlVideo": "",
       "exterior":"Blue",
       "interior":"",
-      "mileage": 35000
+      "mileage": 35000,
+      "rating":4,
+      "slug":"honda-beat-2012"
     },
     {        
       "id": 35,
@@ -594,7 +662,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"",
-      "mileage": 5000
+      "mileage": 5000,
+      "rating":4,
+      "slug":"honda-scoopy-fi-2016"
     },
     {        
       "id": 36,
@@ -611,7 +681,9 @@
       "urlVideo": "",
       "exterior":"Red",
       "interior":"",
-      "mileage": "15000"
+      "mileage": 15000,
+      "rating":4,
+      "slug":"suzuki-smash-titan-2012"
     },
     {        
       "id": 37,
@@ -628,7 +700,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"",
-      "mileage": 40000
+      "mileage": 40000,
+      "rating":5,
+      "slug":"suzuki-gsx-r-2017"
     },
     {        
       "id": 38,
@@ -645,7 +719,9 @@
       "urlVideo": "",
       "exterior":"Black",
       "interior":"",
-      "mileage": 35000
+      "mileage": 35000,
+      "rating":4,
+      "slug":"suzuki-shogun-2007"
     },
     {        
       "id": 39,
@@ -662,7 +738,9 @@
       "urlVideo": "",
       "exterior":"Red",
       "interior":"",
-      "mileage": 20000
+      "mileage": 20000,
+      "rating":4,
+      "slug":"suzuki-hayate-2013"
     },
     {        
       "id": 40,
@@ -679,7 +757,9 @@
       "urlVideo": "",
       "exterior":"White",
       "interior":"",
-      "mileage": 0
+      "mileage": 0,
+      "rating":5,
+      "slug":"suzuki-hayabusa-2014"
     }
   ]   
 }

@@ -1,5 +1,4 @@
 import axios from 'axios'
-import slugify from 'react-slugify';
 
 const url = 'http://localhost:3001';
 
@@ -16,24 +15,41 @@ export const getData = (filter, category) => (dispatch) => {
     // const photo = filter.photo!=='' ? `photo=${filter.photo}&` : '';    
     // const video = filter.video!=='' ? `video=${filter.video}&` : '';       
 
-    // const combination = `${url}/vehicles/?${cate}${model}${condition}${brand}${location}${transmision}${fuel}${exterior}${interior}${price1}${price2}${mileage1}${mileage2}_sort=price&_order=${sort}`
-    const combination = `${url}/vehicles/?${cate}${model}${condition}${brand}${location}${transmision}${fuel}${exterior}${interior}`
+    // const query = `${url}/vehicles/?${cate}${model}${condition}${brand}${location}${transmision}${fuel}${exterior}${interior}${price1}${price2}${mileage1}${mileage2}_sort=price&_order=${sort}`
+    const query = `${url}/vehicles/?${cate}${model}${condition}${brand}${location}${transmision}${fuel}${exterior}${interior}`
     return new Promise((resolve, reject) => {               
-        axios.get(combination).then(function (res) {
-            // handle success                  
-            const dataAll = res.data.map(element => {
-                return{
-                    ...element,
-                    slug: slugify(element.title)
-                }
-            });         
-            dispatch({type: 'SET_DATA', value: dataAll})
+        axios.get(query).then((res) => {
+            // handle success                                       
+            dispatch({type: 'SET_DATA', value: res.data})
             resolve({status: 200, message: 'Success'}) 
         })
-        .catch(function (error) {
+        .catch((error) => {
             // handle error            
             reject({status: 400, message: error}) 
         })
     })
 }
-
+export const getDataBySlug = (slug) => (dispatch) => {
+    const query = `${url}/vehicles/?slug=${slug}`
+    return new Promise((resolve, reject) => {
+        axios.get(query).then((res) => {
+            resolve({status: 200, message: 'Success', data: res.data[0]})
+        })
+        .catch((error) => {
+            // handle error            
+            reject({status: 400, message: error})
+        })
+    })
+}
+export const getDataTop = (rating, condition) => (dispatch) => {
+    const query = `${url}/vehicles/?rating=${rating}&condition=${condition}`
+    return new Promise((resolve, reject) => {
+        axios.get(query).then((res) => {            
+            resolve({status: 200, message: 'Success', data: res.data.slice(0,6)})
+        })
+        .catch((error) => {
+            // handle error            
+            reject({status: 400, message: error})
+        })
+    })
+}    

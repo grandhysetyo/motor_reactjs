@@ -13,8 +13,7 @@ In the work of this website using several packages such as :
 
 
 ## Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
+requires [Node.js](https://nodejs.org/) v10+ to run.
 
 Install the dependencies and devDependencies and start the server.
 

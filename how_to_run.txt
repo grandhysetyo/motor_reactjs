@@ -1,0 +1,14 @@
+Install the dependencies and devDependencies and start the server.
+> npm install
+
+Run Web.
+> npm run start
+
+IF Error
+install json server global & run fake api server
+> npm install -g json-server
+> npm run server
+Run Web
+> npm run app
+
+Thank You
